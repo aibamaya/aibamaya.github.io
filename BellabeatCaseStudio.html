@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Bellabeat - Case Study</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li style="padding-right: 5em;"><strong>Aibamaya Alvarez - Portfolio</Strong></li>
+					<li><a href="AibamayaAlvarezPortfolio.html#intro">About Me</a></li>
+					<li><a href="AibamayaAlvarezPortfolio.html#first">Projects</a></li>
+					<li><a href="AibamayaAlvarezPortfolio.html#second">Resume</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+			<!-- Intro -->
+			<div class="main">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h1>Bellabeat Case Study</h1>
+						</header>
+						<p>Aibamaya Alvarez<br />
+							2/28/2022<br />
+							<a href="https://www.kaggle.com/code/aibamayaalvarez/bellabeat">Bellabeat Case Study on Kaggle</a></p>
+					</div>
+					<span class="image"><img src="images/bellabeat.png" alt="" /></span>
+				</div>
+			</div>
+
+			<!-- Content -->
+			<section id="content" class="main">
+				<p><font size="+2">Welcome to the Bellabeat data analysis case study!</font><br />
+					This case study analyzes smart device ﬁtness data to help unlock new growth opportunities for the Bellabeat company. The insights discovered will help guide a marketing strategy for the company.</p>
+				
+			<h2><strong>About the Company</strong></h2>
+				<p><a href="https://bellabeat.com/">Bellabeat</a> is a high-tech company that manufactures health-focused smart products including, the Bellabeat app, Leaf, Time, and Spring. Collecting data on activity, sleep, stress, and reproductive health has allowed Bellabeat to empower women with knowledge about their health and habits. Bellabeat also offers a subscription-based membership program for users, giving them access to personalized guidance on having a healthy lifestyle. All of this has positioned itself as a tech-driven wellness company for women.</p>
+				
+				<h3>Characters:</h3>
+					<ul>
+						<li>Urška Sršen: Bellabeat’s co-founder and Chief Creative Oﬃcer.</li>
+						<li>Sando Mur: Mathematician and Bellabeat co-founder.</li>
+						<li>Marketing Analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy</li>
+					</ul>
+
+
+			<h2><strong>Business Task</strong></h2>
+				<p>Analyze smart device usage of an existing competitor to identify how consumers use non-Bellabeat devices. Then identify potential opportunities for growth and recommendations for the Bellabeat marketing strategy improvement based on the insights of that analysis.</p>
+				
+				<h3>Questions for the Analysis:</h3>
+					<ul>
+						<li>What are some trends in smart device usage?</li>
+						<li>How could these trends apply to Bellabeat customers?</li>
+						<li>How could these trends help inﬂuence Bellabeat marketing strategy?</li>
+					</ul>
+			
+
+			<h2><strong>Data Selection</strong></h2>
+				<p>The data for this analysis is the <a href="https://www.kaggle.com/arashnic/fitbit">Fitbit Fitness Tracker Data</a> stored on Kaggle and made available by <a href="https://www.kaggle.com/arashnic">Mobius</a>. This dataset is under CC0: Public Domain license meaning the creator has waived his right to the work under copyright law</p>
+				
+				<h3>Data Organization and Description:</h3>
+					<p>This data set contains a personal ﬁtness tracker from thirty ﬁtbit users. It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits. It was generated via a survey through Amazon Mechanical Turk between 12.03.2016 and 12.05.2016. Thirty eligible Fitbit users consented to submit their tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. Variation between output represents different Fitbit trackers and individual tracking behaviors/preferences.</p>
+					<ul>
+						The dataset has the following 18 files in .csv format.
+						<li>1dailyActivity_merged.csv</li>
+						<li>dailyCalories_merged.csv</li>
+						<li>dailyIntensities_merged.csv</li>
+						<li>dailySteps_merged.csv</li>
+						<li>heartrate_seconds_merged.csv</li>
+						<li>hourlyCalories_merged.csv</li>
+						<li>hourlyIntensities_merged.csv</li>
+						<li>hourlySteps_merged.csv</li>
+						<li>minuteCaloriesNarrow_merged.csv</li>
+						<li>minuteCaloriesWide_merged.csv</li>
+						<li>minuteIntensitiesNarrow_merged.csv</li>
+						<li>minuteIntensitiesWide_merged.csv</li>
+						<li>minuteMETsNarrow_merged.csv</li>
+						<li>minuteSleep_merged.csv</li>
+						<li>minuteStepsNarrow_merged.csv</li>
+						<li>minuteStepsWide_merged.csv</li>
+						<li>sleepDay_merged.csv</li>
+						<li>weightLogInfo_merged</li>
+					</ul>
+
+				<h3>Limitations of this Data</h3>
+					<ul>
+						<li>Sample size: the dataset collects the information from 30 individuals, which is a small sample size to determine behavior patterns of a population of people who use smart devices</li>
+						<li>The absence of essential characteristics of the participants might have a significant impact on the data collected, such as gender, age, and lifestyle</li>
+						<li>Third-party data collected using Amazon Mechanical Turk.</li>
+						<li>The data was collected six years ago. It is not as current as it could be for the analysis.</li>
+					</ul> 
+
+				<h3>Environment</h3>
+					<p>R Studio was used to complete this analysis because it has many excellent data processing and visualization features.</p>
+					<ul>
+						Preparing the environment
+						<li>Install the packages needed to work with the dataset.
+							<pre><code>
+install.packages("tidyverse")
+install.packages("skimr")
+install.packages("lubridate")
+install.packages("scales")
+							</code></pre></li>
+						<li>Loading packages.
+							<pre><code>
+library(tidyverse)
+library(skimr)
+library(lubridate)
+library(scales)
+							</code></pre></li>
+						<li>Import the dataset selected to work with after being inspected in excel.
+							<pre><code>
+setwd("/cloud/project/bellabeat/dataset/Fitabase Data 4.12.16-5.12.16/")
+dailyActivity <- read_csv("dailyActivity_merged.csv")
+heartrate_seconds <- read_csv("heartrate_seconds_merged.csv")
+sleepDay <- read_csv("sleepDay_merged.csv")
+weightLogInfo <- read_csv("weightLogInfo_merged.csv")
+hourlyIntensities <- read_csv("hourlyIntensities_merged.csv")
+							</code></pre></li>				
+					</ul>
+
+
+				<h2><strong>Data Cleaning</strong></h2>
+					
+					<h3>Inspecting Data Frames</h3>
+						<p>Visualize the data frame to start exploring the data and ensure they were imported correctly, with the functions <code>head()</code>, <code>glimpse()</code>, and <code>skim_without_charts()</code>. </p>
+						<p>Here are tibbles from each data frame generated with the <code>head()</code> command.</p>
+						<span class="image"><img src="images/head dailyActivity.png" alt="" /></span>
+						<span class="image"><img src="images/head heartRateSeconds.png" alt="" /></span>
+						<span class="image"><img src="images/head sleepDay.png" alt="" /></span>
+						<span class="image"><img src="images/head weigthLogInfo.png" alt="" /></span>
+						<span class="image"><img src="images/head hourlyIntensities.png" alt="" /></span>
+					
+					<h3>Problems Found in the Data</h3>
+						<ul>
+							<li>In each data frame, the timestamp data is like a string. </li>
+							<li>In the weightLogInfo data frame, 65 values are missing in the FAT column</li>
+						</ul>
+					
+					<h3>Correcting the Format of the Timestamp Data</h3>
+						<p>The timestamp data has an incorrect format. It is necessary to convert them to date/time format and split them into date and time variables.</p>
+						<span class="image"><img src="images/fixing date format.png" alt="" /></span>
+					
+					<h3>Duplicates</h3>
+						<span class="image"><img src="images/removing duplicates.png" alt="" /></span><br /><br />
+
+
+				<h2><strong>Visualization and Summarization</strong></h2>
+					
+					<h3>Determine how many Participants are in each Data Frame</h3>
+						<p>Counting how many different values are in the Id variable to determine how many participants are in each data frame.</p>
+						<span class="image"><img src="images/how many participants.png" alt="" /></span>
+						<P>In heartrate_seconds = 14 and weightLogInfo = 8, there are too few participants to consider analyzing these two data frames.</P>
+					
+					<h3>Summarizing the Data of of dailyActivity and sleepDay</h3>
+						<p>Determine min, max, and average values for the variables of dailyActivity and sleepDay data frame.</p>
+						<span class="image"><img src="images/dailyActivity Summary.png" alt="" /></span>
+						<span class="image"><img src="images/sleepDay summary.png" alt="" /></span><br /><br />
+					
+					<h3>Insights of the Summarization</h3>
+					<ul>
+						<li>This summary shows the average user is taking 7638 steps a day. It appears that healthy adults can take anywhere between 4,000 and 18,000 steps/day and that 10,000 steps/day is a reasonable target for healthy adults.</li>
+						<li>Users get 21.16 minutes of very active activity in a day or 148.12 minutes in a week. The CDC recommends at least 75–150 minutes of vigorous-intensity aerobic or an equivalent combination of moderate- and vigorous-intensity activity throughout the week. May increase moderate-intensity aerobic physical activity to more than 300 minutes or do more than 150 minutes of vigorous-intensity aerobic or an equivalent combination of moderate- and vigorous-intensity activity throughout the week for additional health benefits.</li>
+						<li>Participants are averaging 991.2 minutes, or 16.52 hours of sedentary time a day. Scientists have determined that should limit the amount of time spent being sedentary. Replacing sedentary time with physical activity of any intensity provides health benefits. And to help reduce the detrimental effects of high levels of sedentary behavior on health, all adults and older adults should aim to do more than the recommended levels of moderate- to vigorous-intensity physical activity.</li>
+						<li>This summary shows the average user is burning 2304 calories a day. Studies show that the number of calories you should burn in a day depends on your health and fitness goals, as well as other factors like your age, sex, height, weight, and activity levels. But on average, males and females need roughly 2,200–3,000 and 1,600–2,200 calories per day, respectively.</li>
+						<li>The summary of the sleep data shows the average user sleeps once per day for 419.2 minutes or 7 hours. That falls within the CDC’s recommendations for adults to get the proper amount of rest. The average user is spending 458.6 minutes in bed, or 7.6 hours. That means the typical user is spending 39.4 minutes awake in bed.</li>
+					</ul>
+
+					<h3>Visualizations</h3>
+
+					<h4><strong>dailyActivity</strong></h4>
+						<p><u>Comparison between average Fairly Active, Lightly Active, Sedentary, and Very Active Hours.</u><br />
+						<span class="image"><img src="images/very, lightly, fairly actives and sedetary.png" alt="" /></span></p>
+						<p>The dataset reveals that people spend most of their day sedentary with an average of 16 hours per day. On the other hand, they spend just around 4 hours active, which most of those active hours being lightly active.</p>
+						
+						<p><u>Total Steps, Total Distance, Active Minutes, and Sedentary Minutes vs. Calories.</u><br />
+						<span class="image"><img src="images/total steps vs. calories.png" alt="" /></span>
+						<span class="image"><img src="images/total distance vs. calories.png" alt="" /></span><br />
+						<span class="image"><img src="images/active minutes vs. calories.png" alt="" /></span>
+						<span class="image"><img src="images/sedentary minutres vs. calories.png" alt="" /></span></p>
+						<p>The above charts show that a person with higher active minutes tends to burn more calories in a day. The more time they spend inactive, the lower calories they are likely to burn. There is also a positive correlation between Total Steps, Total Distance, and Calories, which is clear, the more active people are, the more calories they burn.</p>
+						
+						<p><u>Average Total Steps and Total Distance per Day of the Week</u><br />
+						<span class="image"><img src="images/average total steps per days of the week.png" alt="" /></span>
+						<span class="image"><img src="images/average total distance per days of the week.png" alt="" /></span></p>
+						<p>People are likely to take more steps or walk long distances on Saturday and Tuesday. In opposite, Sunday is the day when they do this less.</p>
+						
+						<p><u>Average Active and Sedentary Minutes per Day of the Week</u><br />
+						<span class="image"><img src="images/average active minutes per days of the week.png" alt="" /></span>
+						<span class="image"><img src="images/average sedentary minutes per days of the week.png" alt="" /></span></p>
+						<p>People are more active on Saturday and Tuesday, and they are less active on Sunday. The average sedentary minutes are almost equal for all of the week, with Saturday and Thursday being the days with less sedentary time.</p>
+						
+						<p><u>Average Calories per Day of the Week</u><br />
+						<span class="image"><img src="images/average calories per days of the week.png" alt="" /></span></p>
+						<p>In addition to the above charts, the average calories burned per day of the week are all almost the same, outstanding Thursday and Sunday.</p>
+					
+					<h4><strong>sleepDay</strong></h4>
+						<p><u>Time in Bed and Time Asleep</u><br />
+						<span class="image"><img src="images/time in bed vs. time asleep.png" alt="" /></span>
+						<span class="image"><img src="images/average time in bed and asleep.png" alt="" /></span></p>
+						<p>There is a positive relationship between the minutes a person stays in bed and the minutes they sleep. The average amount of time seems to be very close, within a range of six to seven hours for both. That led to the conclusion that most of the time people are in bed; they are sleeping.</p>
+						
+						<p><u>Average Asleep Hours per Day of the Week</u><br />
+						<span class="image"><img src="images/average sleep hour per days of the week.png" alt="" /></span>&nbsp;
+						<span class="image"><img src="images/sleeper type distribution.png" alt="" /></span></p>
+						<p>During the week, people tend to sleep more hours on Sunday, and they sleep less the rest of the days. Approximately 50% of people have a good amount of sleep, between 6 and 8 hours. On average, almost 28% sleep more than 8 hours and 24% less than 6 hours.</p>
+						
+					<h4><strong>Merging dailyActiviy with sleepDay</strong></h4>
+						<span class="image"><img src="images/mergin datasets.png" alt="" /></span>
+						
+						<p><u>Comparison between Hours Sedentary, Active, and Asleep</u><br />
+						<span class="image"><img src="images/average time active, asleep, and sedentary.png" alt="" /></span><br />
+						<span class="image"><img src="images/very active minutes vs. total minutes asleep.png" alt="" /></span>
+						<span class="image"><img src="images/sedentary minutes vs. total minutes asleep.png" alt="" /></span></p>
+						<p>These visualizations compare very active minutes and non-active minutes versus minutes asleep. The more time a person spends non-active, the lower the time they are sleeping. It is a negative relationship that implies non-activity negatively impacts sleep time. On the other hand, there is a more linear relationship between very active minutes and hours of sleep, tending to a more positive relationship as the time the person spends active increases. It seems to be when a person is more active, his sleep quality increases.</p>
+					
+					<h4><strong>hourlyIntensitie</strong></h4>
+						<p><u>Average Intensity per Day of the Week and Hour</u><br />
+						<span class="image"><img src="images/average intensities per days of the week.png" alt="" /></span>&nbsp;&nbsp;
+						<span class="image"><img src="images/average intensity vs. time.png" alt="" /></span></p>
+						<p>The days with more activity during the week are Saturday and Tuesday, Sunday, on the contrary, is the day less active.<br />
+							Throughout the day, people are more active between 6 to 22 hours, and peak activity happens between 17 to 19 hours. From 23 to 5 the activity decreases probably because at that time people are sleeping.</p>
+					
+				<h2><strong>Recommendations</strong></h2>
+					<p>After analyzing FitBit Fitness Tracker Data is possible to use these insights to help influence Bellabeat marketing strategy.</p>
+					<ul>
+						<li>Bellabeat app can include alerts to warn the users when they accumulate a high number of sedentary minutes. Also, the Bellabeat app can make suggestions of activities to help the user to get more active.</li>
+						<li>Encourage people to be more active, and since the most active time happens from 17-19, the Bellabeat app can set reminders to encourage people to train at those hours to increase.</li>
+						<li>Encourage women to reach the goal of 10.000 steps per day. The Bellabeat app can set reminders of how many steps are missing to get 10.000 and motivate them with the benefits that reaching that goal implies to their health.</li>
+						<li>Since Saturdays seem to be the more active day of the week, remind people to walk more long distances, train more time, or be more active in general this day.</li>
+						<li>Sundays tend to be the most sedentary day of the week; because of this, the Bellabeat app can use this day to motivate people to do relaxing routines to be more active to begin the week. And guide them to their webpage, where they can learn how to construct a relaxing day.</li>
+						<li>Bellabeat can also help women improve the quality of their sleep. A reminder can be set one hour before the set bedtime to help them get ready for bed.</li>
+						<li>Encourage women who sleep less than six hours to be more active or reduce sedentary time during the day to help them sleep more hours and improve their sleep quality.</li>
+						<li>Also, consider that more data is needed to support these insights because the correlation between some data does not mean causation. And invest in data which greater sample size and more data from participants like age and gender to have more accurate predictions.</li>
+					</ul>
+
+					<p><font size="+2">Thank you for your interest in my case study project, hope you have enjoyed it!</font></p>
+
+			</section>
+	<!-- New footer -->
+	<footer id="contact" class="main special">
+		<h2>Contact</h2>
+		<ul class="icons">
+			<li></li>Email: <a href="mailto:aibamayaalvgonz@gmail.com"  target="_blank" rel="noopener noreferrer">aibamayaalvgonz@gmail.com</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+			<li><a href="https://www.linkedin.com/in/aibamaya-alvarez" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+			<li><a href="https://github.com/aibamaya" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+			<li><a href="https://www.kaggle.com/aibamayaalvarez" class="icon brands fa-kaggle alt"><span class="label">Kaggle</span></a></li>
+		</ul>
+		<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+	</footer>
+
+	
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

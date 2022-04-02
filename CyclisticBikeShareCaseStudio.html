@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Cyclistic-Case Study</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li style="padding-right: 5em;"><strong>Aibamaya Alvarez - Portfolio</Strong></li>
+					<li><a href="AibamayaAlvarezPortfolio.html#intro">About Me</a></li>
+					<li><a href="AibamayaAlvarezPortfolio.html#first">Projects</a></li>
+					<li><a href="AibamayaAlvarezPortfolio.html#second">Resume</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+			
+			<!-- Intro -->
+			<section id="intro" class="main">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h1>Cyclistic bike-share Case Study</h1>
+						</header>
+						<p>Aibamaya Alvarez<br />
+							3/26/2022</p>
+					</div>
+					<span class="image"><img src="images/bike.png" alt="" /></span>
+				</div>
+			</section>
+			
+			<!-- Content -->
+			<section id="content" class="main">
+					<p>Welcome to the Cyclistic bike-share analysis case study!<br />
+						This case study analyzes how the two groups of users (members and casual) of Cyclistic use the company services to design a marketing campaign whose goal is to convert casual riders to become annual members.</p>
+					
+				<h2>About the Company</h2>
+					<p>Cyclistic, a bike-share company in Chicago, 2016, launched a successful bike-share oﬀering. The program has grown to a ﬂeet of 5,824 bicycles tracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. Cyclistic’s marketing strategy built general awareness and appealed to broad consumer segments. One approach that helped make these things possible was the ﬂexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships. Customers who purchase single-ride or full-day passes are referred to as casual riders. Customers who purchase annual memberships are Cyclistic members.</p>
+					<h3>Characters:</h3>
+					<ul>
+						<li>Cyclistic: A bike-share program that features more than 5,800 bicycles and 600 docking stations. Cyclistic sets itself apart by also oﬀering reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who cannot use standard two-wheeled bikes. Most riders opt for traditional bikes; about 8% of riders use assistive options. Cyclistic users are more likely to ride for leisure, but about 30% use them to commute to work each day.</li>
+						<li>Lily Moreno: The marketing director responsible for developing campaigns and initiatives to promote the bike-share program.</li>
+						<li>Cyclistic marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Cyclistic marketing strategy.</li>
+						<li>Cyclistic executive team: The notoriously detail-oriented executive team will decide whether to approve the recommended marketing program.</li>
+					</ul>
+					
+				<h2>Business Task</h2>
+					<p>Design marketing strategies aimed at converting casual riders into annual members. However, the marketing analyst team needs to understand better how annual members and casual riders diﬀer, why casual riders would buy a membership, and how digital media would aﬀect their marketing tactics. Moreno and her team are interested in analyzing the Cyclistic historical bike trip data to identify trends.</p>
+					<h3>Questions for the Analysis:</h3>
+					<ul>
+						<li>How do annual members and casual riders use Cyclistic bikes diﬀerently?</li>
+						<li>Why would casual riders buy Cyclistic annual memberships?</li>
+						<li>How can Cyclistic use digital media to inﬂuence casual riders to become members?</li>
+					</ul>
+					
+				<h2>Data Selection</h2>
+					<p>The data for this analysis is historical trip data of Cyclistic, which has been made available by <a href="https://divvy-tripdata.s3.amazonaws.com/index.html">Motivate International Inc.</a> (Located on the cloud storage Amazon Web Services of the company) under this <a href="https://ride.divvybikes.com/data-license-agreement">license</a>. That is public data that can be used to explore how diﬀerent customer types are using Cyclists bikes. But note that data-privacy issues prohibit using personally identiﬁable information of the riders. That means that we will not be able to connect past purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple single passes.</p>
+					<h3>Data Organization and Description:</h3>
+					<p>The dataset shows 12 months (from January to December 2021) of Cyclistic trip data. Each table consists of one-month data with 13 columns with various records like:</p>
+					<ul>
+						<li>ride id</li>
+						<li>rideable type (classic, electric, or docked bike)</li>
+						<li>started/ended at (fields with the timestamp data for each ride)</li>
+						<li>start/end station name and id </li>
+						<li>start/end station latitude and longitude</li>
+						<li>member casual (casual: customers with single-ride passes and full-day passes, member: customers with annual memberships)</li>
+					</ul>
+					<h3>Limitations of this Data</h3>
+					<p>As riders’ personally identifiable information is hidden, thus will not be able to connect passes purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or have purchased multiple passes.</p> 
+					<h3>Environment</h3>
+					<p>Tools selected for data verification and cleaning:</p>
+					<ul>
+						<li>Microsoft Excel</li>
+						<li>BigQuery</li>
+					</ul>
+					<p>Tools selected for data summarization and visualization:</p>
+					<ul>
+						<li>BigQuery</li>
+						<li>Tableau Public</li>
+					</ul>
+					
+				<h2>Data Cleaning</h2>
+					<h3>Inspecting the Data with Excel</h3>
+					<p>The first step, inspect the dataset with an Excel Worksheet to:</p>
+					<ul>
+						<li>Check if every column has the correct data type.</li>
+						<li>Check for invalid / incorrect / unusable data.</li>
+						<li>Check if there are duplicates in the data.</li>
+					</ul>
+					<p>By verifying the data, some problems got spotted.</p>
+					<ul>
+						<li>By filtering the ride_id field, we see that most ride_id elements contain 16 characters, but some elements don't meet that condition. So, we calculate the length of the string and then filter to see what elements are different from the 16 characters.</li>	
+					</ul>
+					<ul class="features">
+						<li><span class="image"><img src="images/ride id filter.png" alt=""/><h6>SAMPLE OF VALUES OF RIDE_ID FIELD</h6></span></li>
+						<li><span class="image"><img src="images/ride id diff 16.png" alt="" /><h6>VALUES WITH RIDE_ID LENGTH DIFFERENT FROM 16 CHARACTERS</h6></span></li>	
+					</ul>
+					<ul>
+						<li>Some cells from the start_station_name and end_station_name columns contain the string "(Temp)" at the end of the name. The string "(Temp)" needs to be removed from the station name to have a cleaner stations name.</li>
+						<li>There are also trips with start/ end _id identified like (LBS-WH-TEST) those are rides for maintenance or repair and must be removed to avoid bias in the analysis.</li>
+					</ul>
+					<ul class="features">
+						<li><span class="image"><img src="images/station name temp.png" alt=""/><h6>SAMPLE OF VALUES OF START_STATION_NAME FIELD </h6></span></li>
+						<li><span class="image"><img src="images/station id test.png" alt="" /><h6>SAMPLE OF VALUES OF START_STATION_ID FIELD</h6></span></li>	
+					</ul>
+					<h3>Data Cleaning with BigQuery</h3>
+					<p>All tables are uploaded to BigQuery to unite them in a single table for the analysis of the whole year.
+						We fixed the problems spotted from the inspection in excel in the new table. Also, we create two columns with new information.</p>
+					<ul>
+						<li>Create a table named 2021 to join all month's data.</li>
+						<li>Create ride_length_minutes column (ride_length_minutes = ended_at - started_at) to calculate the duration of the trips.</li>
+						<li>Create a column named day_of_week (from started_at) to know which day of the week each trip was made.</li>
+						<li>Remove leading and trailing spaces from the start/end_station_name and member_casual columns.</li>
+					</ul>
+					<p>We stored the result of this query as a new table named 2021.</p>
+					<span class="image"><img src="images/query table 2021.png" alt=""/></span>
+					<h3>Inspecting Table 2021</h3>
+					<ul>
+						<li>Look for how much data has a ride_id length different from 16 characters.</li>
+							<span class="image"><img src="images/query ride id.png" alt=""/></span>
+							<p>There are 2525 rows where the length of the ride_id values are different from 16 characters.</p>
+							<span class="image"><img src="images/table ride lid.png" alt=""/><h6>SAMPLE OF ROWS WITH RIDE_ID DIFFERENT FROM 16 CHARACTERS.</h6></span>
+							<br />
+
+						<li>Look for different values of the rideable_type field </li>
+							<div>
+								<span class="image"><img src="images/query rideable type.png" alt=""/></span>
+							</div>
+							<div>
+								<span class="image"><img src="images/table rideable type.png" alt=""/><h6>VALUES OF RIDEABLE_TYPE FIELD.</h6></span>
+							</div><br />
+
+						<li>Look for negative or zero values in the ride_length_minutes field</li>
+							<span class="image"><img src="images/query ride length.png" alt=""/></span>
+							<p>There are 62310 rows where the ride_length_minutes value is < 1.</p>
+							<span class="image"><img src="images/table ride length.png" alt=""/><h6>SAMPLE OF ROWS WITH RIDE_LENGTH_MINUTES LESS THAN 1 MINUTE</h6></span>
+							<br />
+								
+						<li>Look for different values of the member_casual field</li>
+							<div>
+								<span class="image"><img src="images/query member casual.png" alt=""/></span>
+							</div>
+							<div>
+								<span class="image"><img src="images/table member casual.png" alt=""/><h6>VALUES OF MEMBER_CASUAL FIELD</h6></span>
+							</div><br />
+
+						<li>Look for different values of the day_of_week field</li>
+							<div>
+								<span class="image"><img src="images/query day of the week.png" alt=""/></span>
+							</div>
+							<div>
+								<span class="image"><img src="images/table day of the week.png" alt=""/><h6>VALUES OF DAY_OF_WEEK FIELD</h6></span>
+							</div><br />
+						
+						<li>Look for different names of start and end station</li>
+							<p>There are six-station names with (Temp) at the end.</p>
+							<span class="image"><img src="images/table start station with temp.png" alt=""/></span>
+							<p>There are travels to the repair station, not consider those</p>
+							<span class="image"><img src="images/table start station reapir examples.png" alt=""/></span>
+					</ul>
+					<h3>Create a New Table with the Final Clean Data for the Analysis</h3>
+					<ul>
+						<li>Generate a new table with the data cleaned</li>
+						<li>Trim the (Temp) value from the end of the start and end station name</li>
+						<li>Remove the trips for maintenance or repair</li>
+						<li>Remove the ride_length_minutes values equal to or less than zero</li>
+						<li>Remove the rows with ride id lengths different from 16 characters</li>
+						<li>We stored the result of this query in a new table named 2021_clean, which will use to perform the analysis</li>
+					</ul>
+					<span class="image"><img src="images/query tabel 2021_clean.png" alt=""/></span>
+					
+				<h2>Visualization and Summarization</h2>
+					<p>We will now perform a descriptive analysis of the data to find patterns between casual customers and members.</p>
+					<h3>Analyzing how many trips took each group</h3>
+					<span class="image"><img src="images/Number of Trip.png" alt=""/></span>
+					<ul>
+						<li>There are more trips from members than from casuals. Members made approximately 55% of the trips.</li>  
+						<li>The most significant number of trips for members are from April to November, with a peak from June to October.</li>
+						<li>The curve for casuals is narrower. Trips start rising from May to October, and the peak season is from June to September getting a significant rise in July with the highest number of trips of the year.</li> 
+						<li>The period with fewer trips is from December to February for both cases.</li> 
+						<li>The rise of the trips is probably related to the stations (the highest values are in summer and the downfall in winter).</li> 
+						<li>Looking at the number of rides per week, we see a difference between how members and casuals use the bike-share service.</li> 
+						<li>The peak trips for casuals occur on weekends; trips begin to rise from Friday to Sunday, reaching the highest values on Saturday, and drop during the weekdays.</li> 
+						<li>With members, the opposite happens trips go up during the week and go down a little on weekends.</li>
+						<li>However, the number of trips varies less between each day for members than for casuals.</li>
+					</ul>
+					<p>This graph gives us an idea of what purpose each type of customer uses the Cyclistic services; it is possible that members use the service to get to work, and casuals use it mainly for leisure.</p>
+					<h3>Analyzing the average duration of the trips</h3>
+					<span class="image"><img src="images/Average Trip Duration.png" alt=""/></span>
+					<ul>
+						<li>The average duration of the trips for members is approximately 13 min, while form casuals are half an hour. On average, casuals took trips longer than members.</li>  
+						<li>The average trip duration by day of the week is similar for both users. The trips are longer on weekends than on weekdays, being Sunday the day of the week with the most extensive rides. The average duration of the trips varies more for casual than for members.</li>
+						<li>The average trip duration is almost the same for members throughout the year. However, it falls a bit from October to January, which may be related to the winter. For casuals, the average trip duration varies more each month. For example, trips take more than half an hour between February and July and begin to decrease from there.</li> 
+						<li>The peak average duration for the trips is in February for both types, although this difference highlights more on casual, where the average trip duration goes to almost 50 minutes.</li> 
+					</ul>
+					<h3>Traffic Map</h3>
+					<span class="image"><img src="images/Departure Station's Traffic.png" alt=""/></span>
+					<ul>
+						<li>For casuals, the stations with more trips are around the bay area, and there is one station (Streeter Dr & Grand Av) with the most departures. The further we go from the bay trips decrease a lot. Also, there is a significant variation in the number of trips departing from each station.</li>  
+						<li>Members are more spread out through Chicago, they use more stations, and the difference between the number of departures from each station is narrower.</li>
+					</ul>
+					<span class="image"><img src="images/Arrival Station Traffic.png" alt=""/></span>
+					<ul>
+						<li>For arrival stations, the same thing happens as for departure stations. Casual users are more concentrated in the bay area while members are spread out over a larger area.</li>  
+					</ul>
+					<p>These traffic maps help us to form the hypothesis that casual riders use these services mainly for leisure and for members to commute.</p>	
+					
+				<h2>Conclusions</h2>
+					<ul>
+						<li>More rides are coming from members than casual, although this difference is approximately 5%.</li>
+						<li>Both groups use the bike-share service more d during the summer.</li>
+						<li>In July is the peak use of the service, and the casual users are the ones that use it more.</li>
+						<li>Casuals use the bikes more on weekends while members use them more on weekdays.</li>
+						<li>Casuals take longer trips than members.</li>
+						<li>Trips are longer for casuals between spring and part of the summer.</li>
+						<li>Also, trips are longer on weekends for both groups.</li>
+						<li>Most casual users' trips are concentrated near the Bay Area. For members, these trips are spread out through a wider area.</li>
+					</ul>
+
+				<h2>Recommendations</h2>					 
+					<p>There are more rides from members than from casuals, indicating that the company's loyalty level is good. For that reason, there is a chance to convert casual users to members.<br />
+					It looks like casual groups use this service more for leisure; they may be tourists or townies who want to take a trip for distraction, but some casuals use the bike-sharing service regularly. Those are the ones who need to point to a marketing campaign.</p>
+					<ul>
+						<li>Summer is a great time to launch a marketing campaign because it is the time of the year when more trips happen.</li>
+						<li>The bay area is where casuals take most trips, which is a great area to attract customers to change their subscriptions.</li>
+						<li>Casual groups use the bike-sharing service more on weekends; the company could consider this to offer a flexible membership for weekends only with lower prices.</li>
+						<li>As causal groups use the service for more time (took longer trips), the company could consider this for offering any bonus or discount for longer trips.</li>
+					</ul>
+
+					<h3>Thank you for your interest in my case study project, hope you have enjoyed it!</h3>
+			</section>
+
+				<!-- New footer -->
+		<footer id="contact" class="main special">
+			<h2>Contact</h2>
+			<ul class="icons">
+				<li></li>Email: <a href="mailto:aibamayaalvgonz@gmail.com"  target="_blank" rel="noopener noreferrer">aibamayaalvgonz@gmail.com</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+				<li><a href="https://www.linkedin.com/in/aibamaya-alvarez" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+				<li><a href="https://github.com/aibamaya" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+				<li><a href="https://www.kaggle.com/aibamayaalvarez" class="icon brands fa-kaggle alt"><span class="label">Kaggle</span></a></li>
+			</ul>
+			<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+		</footer>
+		</div>
+
+		
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
